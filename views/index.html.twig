@@ -1,0 +1,9 @@
+{% extends 'share/base.html.twig' %}
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+        You are logged as {{ app.user.username }}
+    {% else %}
+        You are not logged in. Try it - <a href="{{ path('login') }}">login</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'share/base.html.twig' %}
+
+{% block body %}
+    <form id="login_form" action="{{ path('login_check') }}" method="post">
+        <div class="login-error">{{ error }}</div>
+        <div>Логин</div>
+        <div><input type="text" name="_username" value="{{ last_username }}" /></div>
+        <div>Пароль</div>
+        <div><input type="password" name="_password" value="" /></div>
+        <div><input type="submit" value="Войти"/></div>
+    </form>
+{% endblock %}
