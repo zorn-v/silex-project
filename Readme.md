@@ -9,6 +9,7 @@ With this repo you can do ```composer create-project zorn-v/silex-project``` and
 - ```asset``` function for twig
 - Sample routes and contollers for index and login
 - Symfony form component (without sample yet)
+- Symfony form layout without dependency from symfony/translation component
 
 ## Requirements
 By default you need a ```user``` table with ```login``` and ```password``` fields
