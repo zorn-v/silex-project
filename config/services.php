@@ -8,7 +8,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../views',
     'twig.form.templates' => ['share/form_layout.html.twig'],
     'twig.options' => [
-        'cache' => __DIR__ . '/../cache/twig',
+        'cache' => __DIR__ . '/../var/cache/twig',
     ],
 ));
 $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
