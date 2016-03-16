@@ -4,13 +4,13 @@ use Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler;
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
+$app->register(new Silex\Provider\TwigServiceProvider(), [
     'twig.path' => __DIR__ . '/../views',
     'twig.form.templates' => ['share/form_layout.html.twig'],
     'twig.options' => [
         'cache' => __DIR__ . '/../var/cache/twig',
     ],
-));
+]);
 $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
     $twig->addFunction(new \Twig_SimpleFunction('asset', function ($asset) use ($app) {
         return $app['request']->getBasePath().'/'.ltrim($asset, '/');
@@ -20,7 +20,7 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+$app->register(new Silex\Provider\SecurityServiceProvider(), [
     'security.role_hierarchy' => [],
     'security.firewalls' => [
         'default' => [
@@ -32,6 +32,6 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             }),
         ]
     ]
-));
+]);
 
 $app->register(new Silex\Provider\FormServiceProvider());
