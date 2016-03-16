@@ -18,7 +18,9 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
     return $twig;
 }));
 
-$app->register(new Silex\Provider\SessionServiceProvider());
+$app->register(new Silex\Provider\SessionServiceProvider(), [
+    'session.storage.save_path' => __DIR__ . '/../var/sessions'
+]);
 
 $app->register(new Silex\Provider\SecurityServiceProvider(), [
     'security.role_hierarchy' => [],
