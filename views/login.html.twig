@@ -3,10 +3,10 @@
 {% block body %}
     <form id="login_form" action="{{ path('login_check') }}" method="post">
         <div class="login-error">{{ error }}</div>
-        <div>Логин</div>
+        <div>Username</div>
         <div><input type="text" name="_username" value="{{ last_username }}" /></div>
-        <div>Пароль</div>
+        <div>Password</div>
         <div><input type="password" name="_password" value="" /></div>
-        <div><input type="submit" value="Войти"/></div>
+        <div><input type="submit" value="Login"/></div>
     </form>
 {% endblock %}
