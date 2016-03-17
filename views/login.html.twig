@@ -1,12 +1,12 @@
 {% extends 'share/base.html.twig' %}
 
 {% block body %}
-    <form id="login_form" action="{{ path('login_check') }}" method="post">
-        <div class="login-error">{{ error }}</div>
-        <div>Username</div>
-        <div><input type="text" name="_username" value="{{ last_username }}" /></div>
-        <div>Password</div>
-        <div><input type="password" name="_password" value="" /></div>
-        <div><input type="submit" value="Login"/></div>
-    </form>
+{% if error %}
+    <div style="color:red;">{{ error }}</div>
+{% endif %}
+<ul>
+    {% for name, url in login_paths %}
+    <li><a href="{{ url }}">Login with {{ name|capitalize }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}

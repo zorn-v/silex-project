@@ -2,7 +2,9 @@
 
 {% block body %}
     {% if is_granted('ROLE_USER') %}
-        You are logged as {{ app.user.username }}
+        <div>You are logged as {{ app.user.name }}</div>
+        <div>Your email is {{ app.user['email']|default('') }}</div>
+        <a href="{{ path('logout') }}">Logout</a>
     {% else %}
         You are not logged in. Try it - <a href="{{ path('login') }}">login</a>
     {% endif %}

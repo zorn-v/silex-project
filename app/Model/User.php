@@ -7,26 +7,24 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class User extends Model implements UserInterface
 {
-    public $timestamps = false;
+    public function oauth_users()
+    {
+        return $this->hasMany('App\\Model\\OAuthUser');
+    }
 
     public function getUsername()
     {
-        return $this->login;
+        return $this->id;
     }
 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    
+    public function getPassword() {}
+
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return $this->is_admin ? ['ROLE_ADMIN'] : ['ROLE_USER'];
     }
 
-    public function getSalt()
-    {
-    }
+    public function getSalt() {}
 
     public function eraseCredentials() {}
 }
