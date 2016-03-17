@@ -31,6 +31,7 @@ class OAuthUserProvider implements UserProviderInterface, OAuthUserProviderInter
             $oauthUser->service = $token->getService();
             $oauthUser->uid = $token->getUid();
             $oauthUser->name = $token->getUser();
+            $oauthUser->email = $token->getEmail();
             if ($token->isAuthenticated()) {
                 $oauthUser->user_id = $token->getAttribute('user_id');
             } else {
@@ -42,6 +43,7 @@ class OAuthUserProvider implements UserProviderInterface, OAuthUserProviderInter
             }
         } else {
             $oauthUser->name = $token->getUser();
+            $oauthUser->email = $token->getEmail();
         }
         $oauthUser->save();
         $token->setUser($oauthUser->user);

@@ -21,6 +21,7 @@ CREATE TABLE `oauth_users` (
   `service` varchar(255) NOT NULL,
   `uid` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
