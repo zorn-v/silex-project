@@ -12,4 +12,4 @@ With this repo you can do ```composer create-project zorn-v/silex-project``` and
 - Symfony form layout without dependency from symfony/translation component
 
 ## Requirements
-By default you need a ```user``` table with ```login``` and ```password``` fields
+By default you need a ```users``` table with ```login``` and ```password``` fields
