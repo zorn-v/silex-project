@@ -78,6 +78,7 @@ $app->register(new Gigablah\Silex\OAuth\OAuthServiceProvider(), [
             'scope' => ['email'],
             'user_endpoint' => 'https://api.vk.com/method/users.get',
             'user_callback' => function ($token, $userInfo, $service) use ($oauthUserCallback) {
+                $userInfo['response'][0]['email'] = $token->getAccessToken()->getExtraParams()['email'];
                 $oauthUserCallback($token, $userInfo['response'][0], $service);
             }
         ],
